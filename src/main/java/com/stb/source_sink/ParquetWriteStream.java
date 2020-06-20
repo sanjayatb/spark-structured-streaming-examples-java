@@ -25,7 +25,7 @@ public class ParquetWriteStream {
                 .option("sep",";")
                 .option("header",true)
                 .schema(schema)
-                .csv("src/main/resources/csv/")
+                .csv("src/main/resources/csv/source_sinks/")
                 .writeStream()
                 .queryName("Parquet write stream")
                 .format("parquet")

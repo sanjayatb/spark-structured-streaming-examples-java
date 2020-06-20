@@ -22,7 +22,7 @@ public class CsvFileStreamSchemaInference {
                 .readStream()
                 .option("sep",";")
                 .option("header",true)
-                .csv("src/main/resources/csv/")
+                .csv("src/main/resources/csv/source_sinks/")
                 .writeStream()
                 .queryName("Csv schema inference stream")
                 .format("console")

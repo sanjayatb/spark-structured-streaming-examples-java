@@ -1,0 +1,4 @@
+This lines DataFrame represents an unbounded table containing the streaming text data.
+This table contains one column of strings named “value”, and each line in the streaming
+text data becomes a row in the table. Note, that this is not currently
+receiving any data as we are just setting up the transformation, and have not yet started it.

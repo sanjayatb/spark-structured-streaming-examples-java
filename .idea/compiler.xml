@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="spark-structured-streaming-examples-java" target="1.5" />
+      <module name="spark-structured-streaming-examples-java" target="8" />
       <module name="test" target="1.5" />
     </bytecodeTargetLevel>
   </component>
