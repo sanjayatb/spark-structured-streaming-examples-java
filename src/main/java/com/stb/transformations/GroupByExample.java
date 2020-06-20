@@ -9,7 +9,6 @@ public class GroupByExample {
 //        SourceAndSink.sinkConsole(customerData);
 
         Dataset<Row> groupByGenre = customerData.groupBy("Genre").count();
-
         //SourceAndSink.sinkConsole(customerData); //This will give below error
         /*org.apache.spark.sql.AnalysisException: Append output mode not supported when there are streaming aggregations on streaming DataFrames/DataSets without watermark;;
             Aggregate [Genre#27], [Genre#27, count(1) AS count#42L]*/
