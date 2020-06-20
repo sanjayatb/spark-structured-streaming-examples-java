@@ -52,4 +52,22 @@ public class SourceAndSink {
         }
     }
 
+    /**
+     * Need output mode complete or watermark for aggregation
+     * @param dataset
+     */
+    public static void sinkConsoleForAggregation(Dataset<?> dataset){
+        try {
+            dataset.writeStream()
+                    .queryName(_appName+" stream")
+                    .outputMode("complete")
+                    .format("console")
+                    .start()
+                    .processAllAvailable();
+        } catch (TimeoutException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

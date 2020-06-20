@@ -3,11 +3,12 @@ package com.stb.source_sink;
 import org.apache.spark.sql.SparkSession;
 import org.apache.spark.sql.types.DataTypes;
 import org.apache.spark.sql.types.Metadata;
+import org.apache.spark.sql.types.StringType;
 import org.apache.spark.sql.types.StructType;
 
 import java.util.concurrent.TimeoutException;
 
-public class ParquetWriteStream {
+public class ParquetWriteStreamWithPartitionBy {
 
     public static void main(String[] args) throws TimeoutException {
         SparkSession sparkSession = SparkSession
@@ -17,8 +18,9 @@ public class ParquetWriteStream {
                 .getOrCreate();
 
         StructType schema = new StructType()
+                .add("year", DataTypes.StringType,false)
                 .add("name", "string")
-                .add("age", DataTypes.IntegerType,false, Metadata.empty());
+                .add("age", DataTypes.IntegerType);
     
         sparkSession
                 .readStream()
@@ -29,9 +31,11 @@ public class ParquetWriteStream {
                 .writeStream()
                 .queryName("Parquet write stream")
                 .format("parquet")
+                .partitionBy("year")
                 .option("path","src/main/resources/parquet")
                 .option("checkpointLocation","src/main/resources/checkpoint")
                 .start()
+//                .start("src/main/resources/parquet") //Can use without path option
                 .processAllAvailable();
 
         /*
