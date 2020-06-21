@@ -5,7 +5,7 @@ import org.apache.spark.sql.Row;
 
 public class OrderByExample {
     public static void main(String[] args) {
-        Dataset<Row> customerData = SourceAndSink.readStreamCsv("OrderBy Function","csv/functions");
+        Dataset<Row> customerData = SourceAndSink.readStreamCsv("OrderBy Function", "csv/transformations");
 //        SourceAndSink.sinkConsole(customerData);
 
         Dataset<Row> orderByAge = customerData

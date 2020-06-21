@@ -9,7 +9,7 @@ public class MapFunctionExample {
 
     public static void main(String[] args){
 
-        Dataset<Row> customerData = SourceAndSink.readStreamCsv("Map Function","csv/functions");
+        Dataset<Row> customerData = SourceAndSink.readStreamCsv("Map Function", "csv/transformations");
 
         //Map function applies to each element of Dataset and it returns the result as new Dataset
         //below example i'm creating a combined column of CustomerID and  Genre

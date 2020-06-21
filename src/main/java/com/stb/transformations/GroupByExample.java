@@ -5,7 +5,7 @@ import org.apache.spark.sql.Row;
 
 public class GroupByExample {
     public static void main(String[] args) {
-        Dataset<Row> customerData = SourceAndSink.readStreamCsv("GroupBy Function","csv/functions");
+        Dataset<Row> customerData = SourceAndSink.readStreamCsv("GroupBy Function", "csv/transformations");
 //        SourceAndSink.sinkConsole(customerData);
 
         Dataset<Row> groupByGenre = customerData.groupBy("Genre").count();

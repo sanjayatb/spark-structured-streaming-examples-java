@@ -6,7 +6,7 @@ import org.apache.spark.sql.Row;
 
 public class FilterExample {
     public static void main(String[] args) {
-        Dataset<Row> customerData = SourceAndSink.readStreamCsv("Filter Function", "csv/functions");
+        Dataset<Row> customerData = SourceAndSink.readStreamCsv("Filter Function", "csv/transformations");
 //        SourceAndSink.sinkConsole(customerData);
 
         Dataset<Row> filterAgeUntyped = customerData
