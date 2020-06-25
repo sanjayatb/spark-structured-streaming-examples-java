@@ -45,6 +45,7 @@ public class SourceAndSink {
                     .queryName(_appName+" stream")
 //                    .outputMode("complete")
                     .format("console")
+                    .option("truncate",false)
                     .start()
                     .processAllAvailable();
         } catch (TimeoutException e) {
